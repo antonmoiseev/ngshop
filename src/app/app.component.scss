@@ -4,6 +4,16 @@ md-toolbar {
   background-color: md-color($ngs-background, card);
 }
 
-md-icon {
+[md-icon-button] {
   color: md-color($ngs-foreground, secondary-text);
+}
+
+.fill {
+  flex: 1 1 auto;
+}
+
+.logo {
+  margin-right: 8px;
+  height: 36px;
+  width: 36px;
 }
