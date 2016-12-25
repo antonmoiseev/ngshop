@@ -1,0 +1,9 @@
+@import '../styles/palette';
+
+md-toolbar {
+  background-color: md-color($ngs-background, card);
+}
+
+md-icon {
+  color: md-color($ngs-foreground, secondary-text);
+}
