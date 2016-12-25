@@ -1,12 +1,8 @@
-<nav md-tab-nav-bar>
-  <a md-tab-link>FEATURED</a>
-  <a md-tab-link [active]="true">BOOKS</a>
-  <a md-tab-link>ELECTRONICS</a>
-  <!--<a md-tab-link
-     *ngFor="let link of navLinks"
-     [routerLink]="link"
-     routerLinkActive #rla="routerLinkActive"
-     [active]="rla.isActive">
-    {{tabLink.label}}
-  </a>-->
-</nav>
+<!--
+  TODO: Consider MdTabNavBar as soon as following issues are resolved:
+    * https://github.com/angular/material2/issues/1967
+    * https://github.com/angular/material2/issues/2177
+-->
+<md-tab-group>
+  <md-tab *ngFor="let c of categories" [label]="c | uppercase"></md-tab>
+</md-tab-group>
