@@ -9,7 +9,7 @@ export const routes: Route[] = [
   { path: '', pathMatch: 'full', redirectTo: 'categories' },
   { path: 'categories',
     children: [
-      { path: '', pathMatch: 'full', redirectTo: 'featured' },
+      { path: '', pathMatch: 'full', redirectTo: 'feature' },
       { path: ':category', component: HomeComponent },
     ]
   },
