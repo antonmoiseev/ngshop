@@ -1,6 +1,9 @@
 {
   "rules": {
     ".read": "true",
-    ".write": "auth != null"
+    ".write": "false",
+    "products": {
+      ".indexOn": ["featured"]
+    }
   }
 }

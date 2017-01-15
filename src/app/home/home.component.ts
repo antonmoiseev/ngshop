@@ -2,6 +2,9 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MdTabGroup } from '@angular/material';
 import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/mergeMap';
+
+import { ProductService } from '../shared/services';
 
 @Component({
   selector: 'ngs-home',
@@ -24,9 +27,19 @@ export class HomeComponent implements AfterViewInit {
 
   @ViewChild(MdTabGroup) mdTabGroup: MdTabGroup;
 
-  constructor(private route: ActivatedRoute, private router: Router) {
-    // TODO: add switchMap()
-    this.route.params.subscribe(params => console.log(params));
+  constructor(
+      private productService: ProductService,
+      private route: ActivatedRoute,
+      private router: Router) {
+
+    this.route.params
+        // Parameters list below uses the ES6 feature called destructuring.
+        .switchMap(({category}) => this.productService.getFeatured())
+        .mergeMap(products => {
+          console.log(products);
+          return this.productService.getProductById(products[0].id);
+        })
+        .subscribe(p => console.log(p));
   }
 
   ngAfterViewInit() {
