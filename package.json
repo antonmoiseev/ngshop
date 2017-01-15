@@ -12,7 +12,8 @@
     "e2e": "protractor",
     "deploy:database": "firebase database:set / database.json -y",
     "deploy:hosting": "firebase deploy --only hosting",
-    "deploy:rules": "firebase deploy --only database"
+    "deploy:rules": "firebase deploy --only database",
+    "deploy": "yarn run deploy:rules && firebase deploy --only database,hosting"
   },
   "private": true,
   "dependencies": {
