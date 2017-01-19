@@ -1,0 +1,32 @@
+@import '../../../styles/palette';
+
+:host {
+  background: md-color($ngs-background, card);
+  height: 100%;
+  width: 100%;
+  text-align: center;
+
+  // Children layout
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.thumbnail {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 50%;
+  width: 50%;
+}
+
+.title {
+  color: #0a3142;
+  font-family: 'Abril Fatface', cursive;
+  font-size: 20px;
+
+  @media (min-width: 1280px) {
+    font-size: 34px;
+  }
+}

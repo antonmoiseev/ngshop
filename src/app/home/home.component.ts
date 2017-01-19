@@ -1,10 +1,10 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MdTabGroup } from '@angular/material';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/mergeMap';
 
-import { ProductService } from '../shared/services';
+import { Product, ProductService } from '../shared/services';
 
 @Component({
   selector: 'ngs-home',
@@ -15,7 +15,7 @@ export class HomeComponent implements AfterViewInit {
 
   // TODO: Make array items readonly after upgrading tp TypeScript 2.1
   // https://blogs.msdn.microsoft.com/typescript/2016/12/07/announcing-typescript-2-1/#partial-readonly-record-and-pick
-  readonly categories = [
+  private readonly categories = [
     'feature',
     'latest',
     'fashion',
@@ -25,6 +25,8 @@ export class HomeComponent implements AfterViewInit {
     'travel'
   ];
 
+  products: Observable<Product[]>;
+
   @ViewChild(MdTabGroup) mdTabGroup: MdTabGroup;
 
   constructor(
@@ -32,14 +34,9 @@ export class HomeComponent implements AfterViewInit {
       private route: ActivatedRoute,
       private router: Router) {
 
-    this.route.params
+    this.products = this.route.params
         // Parameters list below uses the ES6 feature called destructuring.
-        .switchMap(({category}) => this.productService.getFeatured())
-        .mergeMap(products => {
-          console.log(products);
-          return this.productService.getProductById(products[0].id);
-        })
-        .subscribe(p => console.log(p));
+        .switchMap(({category}) => this.productService.getAll());
   }
 
   ngAfterViewInit() {

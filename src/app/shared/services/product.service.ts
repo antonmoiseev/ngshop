@@ -10,7 +10,13 @@ export class ProductService {
 
   constructor(@Inject(API_BASE_URL) private baseUrl: string, private http: Http) {}
 
-  getFeatured(): Observable<any> {
+  getAll(): Observable<Product[]> {
+    return this.http.get(`${this.baseUrl}/products.json`)
+        .map(resp => resp.json())
+        .map(data => assignId(data));
+  }
+
+  getFeatured(): Observable<Product[]> {
     const params = new URLSearchParams();
     params.append('orderBy', '"featured"');
     params.append('equalTo', 'true');
@@ -20,7 +26,7 @@ export class ProductService {
         .map(data => assignId(data));
   }
 
-  getProductById(id: number[]): Observable<any> {
+  getProductById(id: number[]): Observable<Product> {
     return this.http.get(`${this.baseUrl}/products/${id}.json`)
         .map(resp => resp.json())
         .map(data => Object.assign(data, { id }));
@@ -30,4 +36,13 @@ export class ProductService {
 
 function assignId(data: any): any[] {
   return Object.keys(data).map(id => Object.assign(data[id], { id }));
+}
+
+export interface Product {
+  description: string;
+  featured: boolean;
+  imageUrl: string;
+  price: number;
+  title: string;
+  id: number;
 }

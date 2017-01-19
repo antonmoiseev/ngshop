@@ -9,9 +9,10 @@ import { ProductService } from './shared/services';
 import { routes } from './app.routing';
 import { API_BASE_URL } from './app.tokens';
 import { AppComponent } from './app.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
-import { CheckoutComponent } from './checkout/checkout.component';
+import { ProductTileComponent } from './home/product-tile/product-tile.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     AppComponent,
     CheckoutComponent,
     HomeComponent,
-    ProductComponent
+    ProductComponent,
+    ProductTileComponent
   ],
   bootstrap: [
     AppComponent
