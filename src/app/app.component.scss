@@ -2,6 +2,11 @@
 
 md-toolbar {
   background: md-color($ngs-background, card);
+
+  // This adds a bottom border. On the home page the tabs are rendered on top of the
+  // shadow this makes the header look like a single component. On other pages, the
+  // shadow is visible, so it separates header from the content.
+  box-shadow: 0 1px md-color($ngs-foreground, divider);
 }
 
 [md-icon-button] {
