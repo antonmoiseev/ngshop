@@ -12,3 +12,5 @@ $ngs-theme: md-light-theme($ngs-primary, $ngs-accent, $ngs-warn);
 
 $ngs-background: map-get($ngs-theme, background);
 $ngs-foreground: map-get($ngs-theme, foreground);
+
+$ngs-brand-font: 'Abril Fatface', cursive;

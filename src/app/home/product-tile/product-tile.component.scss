@@ -14,19 +14,18 @@
 }
 
 .thumbnail {
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
+  background: no-repeat 50% 50%;
   background-size: contain;
   height: 50%;
   width: 50%;
 }
 
 .title {
-  color: #0a3142;
-  font-family: 'Abril Fatface', cursive;
-  font-size: 20px;
+  color: md-color($ngs-foreground, text);
+  font-family: $ngs-brand-font;
+  font-size: 20px; // Title
 
   @media (min-width: 1280px) {
-    font-size: 34px;
+    font-size: 34px; // Display 1
   }
 }
