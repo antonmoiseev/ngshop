@@ -15,3 +15,9 @@
 md-ink-bar {
   background-color: md-color($ngs-accent);
 }
+
+body {
+  color: md-color($ngs-foreground, text);
+  font-family: $md-font-family;
+  font-size: rem(1.4);
+}
