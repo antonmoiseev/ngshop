@@ -1,0 +1,16 @@
+= NgShop Development Guide
+Anton Moiseev, Yakov Fain <training@faratasystems.com>
+
+:icons: font
+
+== Outline
+
+. Overview of the app
+. Planning
+.. Add UI flow chart
+. Setting up the development environment
+[style=numeric]
+.. node.js
+.. npm/yarn
+.. angular-cli
+.. WebStorm

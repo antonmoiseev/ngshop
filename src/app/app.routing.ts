@@ -13,6 +13,6 @@ export const routes: Route[] = [
       { path: ':category', component: HomeComponent },
     ]
   },
-  { path: 'products', component: ProductComponent },
-  { path: 'checkout', component: CheckoutComponent },
+  { path: 'products/:productId', component: ProductComponent },
+  { path: 'checkout', component: CheckoutComponent }
 ];
