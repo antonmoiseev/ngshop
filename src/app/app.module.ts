@@ -11,8 +11,9 @@ import { API_BASE_URL } from './app.tokens';
 import { AppComponent } from './app.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { HomeComponent } from './home/home.component';
-import { ProductComponent } from './product/product.component';
 import { ProductTileComponent } from './home/product-tile/product-tile.component';
+import { ProductComponent } from './product/product.component';
+import { ProductDetailsComponent } from './product/product-details/product-details.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { ProductTileComponent } from './home/product-tile/product-tile.component
     CheckoutComponent,
     HomeComponent,
     ProductComponent,
-    ProductTileComponent
+    ProductTileComponent,
+    ProductDetailsComponent
   ],
   bootstrap: [
     AppComponent
