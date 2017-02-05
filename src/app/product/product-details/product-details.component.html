@@ -2,7 +2,21 @@
   <img [attr.src]="product?.imageUrl" [attr.alt]="product?.title">
 </div>
 
-<div class="info">
+<div class="content">
   <h1>{{ product?.title }}</h1>
   <p>{{ product?.description }}</p>
+
+  <div class="quantity">
+    <md-select placeholder="Quantity">
+      <md-option>1 item</md-option>
+      <md-option>2 items</md-option>
+      <md-option>3 items</md-option>
+      <md-option>4 items</md-option>
+      <md-option>5 items</md-option>
+    </md-select>
+
+    <button md-mini-fab>
+      <md-icon>add_shopping_cart</md-icon>
+    </button>
+  </div>
 </div>
