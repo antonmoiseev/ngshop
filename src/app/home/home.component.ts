@@ -111,7 +111,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     if (mql.matches) {
       this.updateGridListColumns(mql);
 
-      // Currently zone.js doesn't patch the MediaQueryList API, this mins
+      // Currently zone.js doesn't patch the MediaQueryList API, this means
       // the Angular change detection mechanism is not automatically triggered
       // when a MediaQueryListener finishes its work. So we need to trigger the
       // change detector manually.
