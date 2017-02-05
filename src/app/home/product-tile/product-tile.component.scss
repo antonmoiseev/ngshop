@@ -1,9 +1,11 @@
+@import '~@angular/material/core/style/variables';
 @import '../../../styles/palette';
 
 :host {
   background: md-color($ngs-background, card);
   height: 100%;
   width: 100%;
+  padding: 8px;
   text-align: center;
 
   // Children layout
@@ -23,9 +25,13 @@
 .title {
   color: md-color($ngs-foreground, text);
   font-family: $ngs-brand-font;
-  font-size: 20px; // Title
+  font-size: 34px; // Display 1
 
-  @media (min-width: 1280px) {
-    font-size: 34px; // Display 1
+  @media ($md-small) {
+    font-size: 24px; // Headline
+  }
+
+  @media ($md-xsmall) {
+    font-size: 20px; // Title
   }
 }
