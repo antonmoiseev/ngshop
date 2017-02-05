@@ -9,7 +9,6 @@
   flex-wrap: wrap;
   justify-content: center;
 
-  // Specific styles for mobile devices
   @media ($md-xsmall) {
     padding-top: 32px;
   }
