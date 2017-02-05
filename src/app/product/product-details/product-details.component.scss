@@ -3,7 +3,6 @@
 
 :host {
   padding: 128px 0 64px;
-  width: 90vw; // TODO(refactor): move layout-specific styles to the hosting page.
 
   // Children layout
   display: flex;
@@ -27,7 +26,7 @@
 }
 
 .info {
-  width: 400px;
+  flex: 0 1 400px;
 
   h1 {
     color: md-color($ngs-foreground, text);
