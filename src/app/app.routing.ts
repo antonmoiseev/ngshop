@@ -1,9 +1,9 @@
 import { Route } from '@angular/router';
 
-import { CartComponent } from './cart/cart.component';
-import { HomeComponent } from './home/home.component';
-import { ProductComponent } from './product/product.component';
-import { CheckoutComponent } from './checkout/checkout.component';
+import { CartComponent, CartResolver } from './cart';
+import { HomeComponent } from './home';
+import { ProductComponent } from './product';
+import { CheckoutComponent } from './checkout';
 
 // TODO: Refactor to Routing Module in the advanced course.
 export const routes: Route[] = [
@@ -16,5 +16,10 @@ export const routes: Route[] = [
   },
   { path: 'products/:productId', component: ProductComponent },
   { path: 'checkout', component: CheckoutComponent },
-  { path: 'cart', component: CartComponent }
+  { path: 'cart',
+    component: CartComponent,
+    resolve: {
+      products: CartResolver
+    }
+  }
 ];

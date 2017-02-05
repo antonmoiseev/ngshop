@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialRootModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -10,17 +10,16 @@ import { ProductService, ShoppingCartService } from './shared/services';
 import { routes } from './app.routing';
 import { API_BASE_URL } from './app.tokens';
 import { AppComponent } from './app.component';
-import { CartComponent } from './cart/cart.component';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { HomeComponent } from './home/home.component';
-import { ProductTileComponent } from './home/product-tile/product-tile.component';
-import { ProductComponent } from './product/product.component';
-import { ProductDetailsComponent } from './product/product-details/product-details.component';
+import { CheckoutComponent } from './checkout';
+import { CartComponent, CartResolver } from './cart';
+import { HomeComponent, ProductTileComponent } from './home';
+import { ProductComponent, ProductDetailsComponent } from './product';
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
     MaterialRootModule
   ],
@@ -38,6 +37,7 @@ import { ProductDetailsComponent } from './product/product-details/product-detai
   ],
   providers: [
     { provide: API_BASE_URL, useValue: environment.apiBaseUrl },
+    CartResolver,
     ProductService,
     ShoppingCartService
   ]

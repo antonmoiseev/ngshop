@@ -21,6 +21,16 @@ export class ShoppingCartService {
     }, 0);
   }
 
+  getItems(): ShoppingCartState {
+    // Return a copy of the shopping cart's state.
+    return Object.assign({}, this.state);
+  }
+
+  setItems(items: ShoppingCartState): void {
+    this.state = items;
+    this.saveState();
+  }
+
   addItem(productId: string, quantity: number): void {
     if (quantity > 0) {
       this.state[productId] = (this.state[productId] || 0) + quantity;

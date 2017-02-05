@@ -26,7 +26,7 @@ export class ProductService {
         .map(data => assignId(data));
   }
 
-  getProductById(id: number[]): Observable<Product> {
+  getProductById(id: string): Observable<Product> {
     return this.http.get(`${this.baseUrl}/products/${id}.json`)
         .map(resp => resp.json())
         .map(data => Object.assign(data, { id }));
