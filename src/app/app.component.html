@@ -7,11 +7,12 @@
   <a routerLink="/"><md-icon class="logo" svgIcon="ngs:logo"></md-icon></a>
   <span class="fill"></span>
 
-  <button md-icon-button
-          class="ngs-badge"
-          [attr.data-badge]="cartTotalQuantity">
+  <a md-icon-button
+     class="ngs-badge"
+     routerLink="/cart"
+     [attr.data-badge]="cartTotalQuantity">
     <md-icon>shopping_cart</md-icon>
-  </button>
+  </a>
 </md-toolbar>
 
 <router-outlet></router-outlet>

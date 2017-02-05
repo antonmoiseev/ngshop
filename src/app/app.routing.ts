@@ -1,5 +1,6 @@
 import { Route } from '@angular/router';
 
+import { CartComponent } from './cart/cart.component';
 import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { CheckoutComponent } from './checkout/checkout.component';
@@ -14,5 +15,6 @@ export const routes: Route[] = [
     ]
   },
   { path: 'products/:productId', component: ProductComponent },
-  { path: 'checkout', component: CheckoutComponent }
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'cart', component: CartComponent }
 ];

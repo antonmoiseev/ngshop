@@ -10,6 +10,7 @@ import { ProductService, ShoppingCartService } from './shared/services';
 import { routes } from './app.routing';
 import { API_BASE_URL } from './app.tokens';
 import { AppComponent } from './app.component';
+import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { HomeComponent } from './home/home.component';
 import { ProductTileComponent } from './home/product-tile/product-tile.component';
@@ -25,6 +26,7 @@ import { ProductDetailsComponent } from './product/product-details/product-detai
   ],
   declarations: [
     AppComponent,
+    CartComponent,
     CheckoutComponent,
     HomeComponent,
     ProductComponent,
