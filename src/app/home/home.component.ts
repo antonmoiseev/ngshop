@@ -128,6 +128,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     switch (this.mediaQueries.get(mediaQueryList)) {
       case 'xsmall': this.columns = 1; break;
       case 'small': this.columns = 2; break;
+      case 'medium':
       case 'large': this.columns = 3; break;
     }
   }
