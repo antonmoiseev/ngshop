@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { environment } from '../environments/environment';
-import { ProductService } from './shared/services';
+import { ProductService, ShoppingCartService } from './shared/services';
 
 import { routes } from './app.routing';
 import { API_BASE_URL } from './app.tokens';
@@ -34,7 +34,8 @@ import { ProductDetailsComponent } from './product/product-details/product-detai
   ],
   providers: [
     { provide: API_BASE_URL, useValue: environment.apiBaseUrl },
-    ProductService
+    ProductService,
+    ShoppingCartService
   ]
 })
 export class AppModule {}
