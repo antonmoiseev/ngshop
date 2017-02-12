@@ -26,5 +26,11 @@
       </button>
     </div>
   </div>
+
+  <div class="cart-actions">
+    Total:
+    <div class="total">{{ total | currency:'USD':true }}</div>
+    <a md-raised-button routerLink="/checkout">CHECKOUT</a>
+  </div>
 </div>
 

@@ -1,8 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import {
-  AbstractControl, FormControl, FormGroup,
-  Validators
-} from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/debounceTime';
 
@@ -37,6 +34,15 @@ export class CartComponent {
           this.cart.setItems(value);
         }
       });
+  }
+
+  get total() {
+    const cartItems = this.cart.getItems();
+    return Object.keys(cartItems).reduce((total, productId) => {
+      const product = this.products.find(p => p.id === productId);
+      const quantity = cartItems[productId];
+      return total + product.price * quantity;
+    }, 0);
   }
 
   removeItem(productId: string) {
