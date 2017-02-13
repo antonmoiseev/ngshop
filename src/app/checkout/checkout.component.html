@@ -1,1 +1,92 @@
-<h2>Checkout</h2>
+<header>
+  <h1>Checkout</h1>
+  <span>NgShop is a demo application - payment method data won't be stored nor processed</span>
+</header>
+
+<div class="grid">
+  <section>
+    <h2>Account Information</h2>
+
+    <div class="row">
+      <md-input-container>
+        <input md-input type="email" placeholder="Email">
+      </md-input-container>
+    </div>
+
+    <div class="row">
+      <md-input-container>
+        <input md-input type="tel" placeholder="Phone Number">
+      </md-input-container>
+    </div>
+
+    <h2>Shipping Address</h2>
+
+    <div class="row">
+      <md-input-container>
+        <input md-input type="text" placeholder="Address">
+      </md-input-container>
+    </div>
+
+    <div class="row">
+      <md-input-container>
+        <input md-input type="text" placeholder="City">
+      </md-input-container>
+    </div>
+
+    <div class="row">
+      <md-input-container>
+        <input md-input type="text" placeholder="State/Province">
+      </md-input-container>
+      <md-input-container>
+        <input md-input type="text" placeholder="Zip/Postal Code">
+      </md-input-container>
+    </div>
+
+    <div class="row">
+      <md-select placeholder="Country">
+        <md-option>United States</md-option>
+        <md-option>Canada</md-option>
+      </md-select>
+    </div>
+  </section>
+
+  <section>
+    <h2>Payment Method</h2>
+
+    <div class="row">
+      <md-input-container>
+        <input md-input type="text" placeholder="Cardholder Name">
+      </md-input-container>
+    </div>
+
+    <div class="row">
+      <md-input-container>
+        <input md-input type="text" placeholder="Card Number">
+      </md-input-container>
+    </div>
+
+    <div class="row expiry">
+
+      <div>
+        <label>Expiry</label>
+        <md-select>
+          <md-option *ngFor="let m of months" [value]="m">{{ m }}</md-option>
+        </md-select>
+      </div>
+
+      <md-select>
+        <md-option *ngFor="let y of years" [value]="y">{{ y }}</md-option>
+      </md-select>
+
+      <md-input-container floatingPlaceholder="false">
+        <input type="tel" md-input placeholder="CVV">
+      </md-input-container>
+    </div>
+
+    <h2>Order Summary</h2>
+
+    <div class="row">
+      <button md-raised-button color="primary">PLACE ORDER</button>
+    </div>
+  </section>
+</div>
