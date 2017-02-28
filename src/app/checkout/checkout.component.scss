@@ -20,6 +20,14 @@ header {
 
 md-input-container, md-select {
   font-size: 16px;
+
+  &.error {
+    color: md-color($ngs-warn) !important;
+  }
+}
+
+md-hint.error {
+  color: md-color($ngs-warn);
 }
 
 .grid {
@@ -44,7 +52,7 @@ md-input-container, md-select {
   }
 
   h2 {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
     margin: 8px 0;
   }

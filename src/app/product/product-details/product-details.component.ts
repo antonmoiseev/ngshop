@@ -17,5 +17,7 @@ export class ProductDetailsComponent {
   addItems() {
     this.shoppingCartService.addItem(this.product.id, this.quantity);
     this.quantity = null; // Reset selected number of items.
+
+    // TODO: Show toast: VIEW CART / CHECKOUT
   }
 }

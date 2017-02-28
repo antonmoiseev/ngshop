@@ -3,90 +3,146 @@
   <span>NgShop is a demo application - payment method data won't be stored nor processed</span>
 </header>
 
-<div class="grid">
+<form novalidate
+      class="grid"
+      [formGroup]="formModel"
+      (ngSubmit)="placeOrder()">
   <section>
-    <h2>Account Information</h2>
+    <div formGroupName="account">
+      <h2>Account Information</h2>
 
-    <div class="row">
-      <md-input-container>
-        <input md-input type="email" placeholder="Email">
-      </md-input-container>
+      <div class="row">
+        <md-input-container>
+          <input md-input
+                 required
+                 type="email"
+                 placeholder="Email"
+                 formControlName="email">
+          <md-hint class="error" *ngIf="hasError('required', ['account', 'email'])">Email is required</md-hint>
+        </md-input-container>
+      </div>
+
+      <div class="row">
+        <md-input-container>
+          <input md-input
+                 required
+                 type="tel"
+                 placeholder="Phone Number"
+                 formControlName="phone">
+          <md-hint class="error" *ngIf="hasError('required', ['account', 'phone'])">Phone is required</md-hint>
+        </md-input-container>
+      </div>
     </div>
 
-    <div class="row">
-      <md-input-container>
-        <input md-input type="tel" placeholder="Phone Number">
-      </md-input-container>
-    </div>
+    <div formGroupName="address">
+      <h2>Shipping Address</h2>
 
-    <h2>Shipping Address</h2>
+      <div class="row">
+        <md-input-container>
+          <input md-input
+                 required
+                 type="text"
+                 placeholder="Address"
+                 formControlName="line1">
+          <md-hint class="error" *ngIf="hasError('required', ['address', 'line1'])">Address is required</md-hint>
+        </md-input-container>
+      </div>
 
-    <div class="row">
-      <md-input-container>
-        <input md-input type="text" placeholder="Address">
-      </md-input-container>
-    </div>
+      <div class="row">
+        <md-input-container>
+          <input md-input
+                 required
+                 type="text"
+                 placeholder="City"
+                 formControlName="city">
+          <md-hint class="error" *ngIf="hasError('required', ['address', 'city'])">City is required</md-hint>
+        </md-input-container>
+      </div>
 
-    <div class="row">
-      <md-input-container>
-        <input md-input type="text" placeholder="City">
-      </md-input-container>
-    </div>
+      <div class="row">
+        <md-input-container>
+          <input md-input
+                 required
+                 type="text"
+                 placeholder="State/Province"
+                 formControlName="state">
+          <md-hint class="error" *ngIf="hasError('required', ['address', 'state'])">State is required</md-hint>
+        </md-input-container>
 
-    <div class="row">
-      <md-input-container>
-        <input md-input type="text" placeholder="State/Province">
-      </md-input-container>
-      <md-input-container>
-        <input md-input type="text" placeholder="Zip/Postal Code">
-      </md-input-container>
-    </div>
+        <md-input-container [dividerColor]="hasError('required', ['address', 'zip']) ? 'warn': 'default'">
+          <input md-input
+                 required
+                 type="tel"
+                 placeholder="Zip/Postal Code"
+                 formControlName="zip">
+          <md-hint class="error" *ngIf="hasError('required', ['address', 'zip'])">Zip code is required</md-hint>
+        </md-input-container>
+      </div>
 
-    <div class="row">
-      <md-select placeholder="Country">
-        <md-option>United States</md-option>
-        <md-option>Canada</md-option>
-      </md-select>
+      <div class="row">
+        <md-select required
+                   placeholder="Country"
+                   formControlName="country">
+          <md-option value="US">United States</md-option>
+          <md-option calue="CA">Canada</md-option>
+        </md-select>
+      </div>
     </div>
   </section>
 
   <section>
-    <h2>Payment Method</h2>
+    <div formGroupName="payment">
+      <h2>Payment Method</h2>
 
-    <div class="row">
-      <md-input-container>
-        <input md-input type="text" placeholder="Cardholder Name">
-      </md-input-container>
-    </div>
-
-    <div class="row">
-      <md-input-container>
-        <input md-input type="text" placeholder="Card Number">
-      </md-input-container>
-    </div>
-
-    <div class="row expiry">
-
-      <div>
-        <label>Expiry</label>
-        <md-select>
-          <md-option *ngFor="let m of months" [value]="m">{{ m }}</md-option>
-        </md-select>
+      <div class="row">
+        <md-input-container>
+          <input md-input
+                 required
+                 type="text"
+                 placeholder="Cardholder Name"
+                 formControlName="cardholder">
+          <md-hint class="error" *ngIf="hasError('required', ['payment', 'cardholder'])">Cardholder name is required</md-hint>
+        </md-input-container>
       </div>
 
-      <md-select>
-        <md-option *ngFor="let y of years" [value]="y">{{ y }}</md-option>
-      </md-select>
+      <div class="row">
+        <md-input-container>
+          <input md-input
+                 required
+                 type="tel"
+                 placeholder="Card Number"
+                 formControlName="cardNumber">
+          <md-hint class="error" *ngIf="hasError('required', ['payment', 'cardNumber'])">Card number is required</md-hint>
+        </md-input-container>
+      </div>
 
-      <md-input-container floatingPlaceholder="false">
-        <input type="tel" md-input placeholder="CVV">
-      </md-input-container>
+      <div class="row expiry" formGroupName="expiry">
+        <div>
+          <label>Expiry</label>
+          <md-select>
+            <md-option *ngFor="let m of months" [value]="m">{{ m }}</md-option>
+          </md-select>
+        </div>
+
+        <md-select>
+          <md-option *ngFor="let y of years" [value]="y">{{ y }}</md-option>
+        </md-select>
+
+        <md-input-container floatingPlaceholder="false">
+          <input md-input
+                 required
+                 type="tel"
+                 placeholder="CVV">
+        </md-input-container>
+      </div>
     </div>
 
     <h2>Order Summary</h2>
 
     <div class="row">
-      <button md-raised-button color="primary">PLACE ORDER</button>
+      <button md-raised-button
+              color="primary"
+              type="submit">PLACE ORDER</button>
     </div>
   </section>
-</div>
+</form>
