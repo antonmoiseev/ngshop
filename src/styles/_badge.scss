@@ -6,8 +6,8 @@
 
   &:after {
     content: attr(data-badge);
-    color: md-color($ngs-primary, default-contrast);
-    background: md-color($ngs-foreground, text);
+    color: mat-color($ngs-primary, default-contrast);
+    background: mat-color($ngs-foreground, text);
     border-radius: 50%;
     line-height: 22px;
     font-size: 12px;

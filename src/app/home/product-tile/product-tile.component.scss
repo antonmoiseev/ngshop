@@ -2,7 +2,7 @@
 @import '../../../styles/palette';
 
 :host {
-  background: md-color($ngs-background, card);
+  background: mat-color($ngs-background, card);
   height: 100%;
   width: 100%;
   padding: 8px;
@@ -23,15 +23,15 @@
 }
 
 .title {
-  color: md-color($ngs-foreground, text);
+  color: mat-color($ngs-foreground, text);
   font-family: $ngs-brand-font;
   font-size: 34px; // Display 1
 
-  @media ($md-small) {
+  @media ($mat-small) {
     font-size: 24px; // Headline
   }
 
-  @media ($md-xsmall) {
+  @media ($mat-xsmall) {
     font-size: 20px; // Title
   }
 }

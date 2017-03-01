@@ -5,7 +5,7 @@
 
 // Include the base styles for Angular Material core. We include this here so
 // that you only have to load a single CSS file for Angular Material in your app.
-@include md-core();
+@include mat-core();
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -13,11 +13,11 @@
 @include angular-material-theme($ngs-theme);
 
 md-ink-bar {
-  background-color: md-color($ngs-accent);
+  background-color: mat-color($ngs-accent);
 }
 
 body {
-  color: md-color($ngs-foreground, text);
-  font-family: $md-font-family;
+  color: mat-color($ngs-foreground, text);
+  font-family: $mat-font-family;
   font-size: rem(1.4);
 }

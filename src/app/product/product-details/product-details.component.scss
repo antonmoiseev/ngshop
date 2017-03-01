@@ -9,7 +9,7 @@
   flex-wrap: wrap;
   justify-content: center;
 
-  @media ($md-xsmall) {
+  @media ($mat-xsmall) {
     padding-top: 32px;
   }
 }
@@ -28,13 +28,13 @@
   flex: 0 1 400px;
 
   h1 {
-    color: md-color($ngs-foreground, text);
+    color: mat-color($ngs-foreground, text);
     font-family: $ngs-brand-font;
     font-size: 45px; // Display 2
     font-weight: 300;
     line-height: 1.5em;
 
-    @media ($md-xsmall) {
+    @media ($mat-xsmall) {
       font-size: 34px; // Display 1
       text-align: center;
     }
@@ -59,6 +59,6 @@
   }
 
   button {
-    color: md-color($ngs-foreground, secondary-text);
+    color: mat-color($ngs-foreground, secondary-text);
   }
 }

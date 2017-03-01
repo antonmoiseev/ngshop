@@ -14,7 +14,7 @@ header {
   }
   span {
     font-size: 12px;
-    color: md-color($ngs-foreground, secondary-text);
+    color: mat-color($ngs-foreground, secondary-text);
   }
 }
 
@@ -22,12 +22,12 @@ md-input-container, md-select {
   font-size: 16px;
 
   &.error {
-    color: md-color($ngs-warn) !important;
+    color: mat-color($ngs-warn) !important;
   }
 }
 
 md-hint.error {
-  color: md-color($ngs-warn);
+  color: mat-color($ngs-warn);
 }
 
 .grid {
@@ -75,7 +75,7 @@ md-hint.error {
     position: relative;
 
     label {
-      color: md-color($ngs-foreground, hint-text);
+      color: mat-color($ngs-foreground, hint-text);
       font-size: 12px;
       position: absolute;
       left: 0;

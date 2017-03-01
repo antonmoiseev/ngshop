@@ -13,7 +13,7 @@
 .cart-item {
   display: flex;
   align-items: center;
-  color: md-color($ngs-foreground, secondary-text);
+  color: mat-color($ngs-foreground, secondary-text);
   margin-bottom: 24px;
 }
 
@@ -33,7 +33,7 @@
   margin-left: 24px;
 
   a {
-    color: md-color($ngs-foreground, text);
+    color: mat-color($ngs-foreground, text);
     text-decoration: none;
   }
 }
