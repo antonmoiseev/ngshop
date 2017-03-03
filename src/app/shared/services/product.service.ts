@@ -5,8 +5,37 @@ import 'rxjs/add/operator/map';
 
 import { API_BASE_URL } from '../../app.tokens';
 
+
+export abstract class ProductService {
+  abstract getAll(): Observable<Product[]>;
+  abstract getCategory(category: string): Observable<Product[]>;
+  abstract getProductById(productId: string): Observable<Product>;
+}
+
 @Injectable()
-export class ProductService {
+export class StaticJsonProductService implements ProductService {
+
+  constructor(private http: Http) {}
+
+  getAll(): Observable<Product[]> {
+    return this.http.get('/data/products/all.json')
+      .map(resp => resp.json());
+  }
+
+  getCategory(category: string): Observable<Product[]> {
+    return this.http.get(`/data/products/${category}.json`)
+      .map(resp => resp.json());
+  }
+
+  getProductById(productId: string): Observable<Product> {
+    return this.http.get('/data/products/all.json')
+      .map(resp => resp.json().find(p => p.id === productId));
+  }
+
+}
+
+@Injectable()
+export class FirebaseProductService {
 
   constructor(@Inject(API_BASE_URL) private baseUrl: string, private http: Http) {}
 

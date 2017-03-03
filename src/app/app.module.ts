@@ -5,7 +5,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { environment } from '../environments/environment';
-import { ProductService, ShoppingCartService } from './shared/services';
+import {
+  ProductService,
+  ShoppingCartService,
+  StaticJsonProductService
+} from './shared/services';
 
 import { routes } from './app.routing';
 import { API_BASE_URL } from './app.tokens';
@@ -37,8 +41,8 @@ import { ProductComponent, ProductDetailsComponent } from './product';
   ],
   providers: [
     { provide: API_BASE_URL, useValue: environment.apiBaseUrl },
+    { provide: ProductService, useClass: StaticJsonProductService },
     CartResolver,
-    ProductService,
     ShoppingCartService
   ]
 })

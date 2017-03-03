@@ -16,13 +16,10 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   // TODO: Make array items readonly after upgrading tp TypeScript 2.1
   // https://blogs.msdn.microsoft.com/typescript/2016/12/07/announcing-typescript-2-1/#partial-readonly-record-and-pick
   private readonly categories = [
-    'feature',
+    'all',
+    'featured',
     'latest',
-    'fashion',
-    'furniture',
-    'beauty',
-    'food',
-    'travel'
+    'sport'
   ];
 
   /**
@@ -61,7 +58,11 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
     this.products = this.route.params
         // Parameters list below uses the ES6 feature called destructuring.
-        .switchMap(({category}) => this.productService.getAll());
+        .switchMap(({category}) => {
+          return category === 'all' ?
+              this.productService.getAll() :
+              this.productService.getCategory(category);
+        });
 
     // If we pass this.onMediaQueryChange method directly to the
     // MediaQueryList.addListener(), `this` keyword won't reference the current
@@ -93,7 +94,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     this.mediaQueries.forEach((screenSize, mediaQueryList) => {
-      mediaQueryList.removeListener(this.mediaQueryListener)
+      mediaQueryList.removeListener(this.mediaQueryListener);
     });
   }
 

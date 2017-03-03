@@ -1,2 +1,2 @@
-export { Product, ProductService } from './product.service';
+export { Product, ProductService, StaticJsonProductService } from './product.service';
 export { ShoppingCartService } from './shopping-cart.service';
