@@ -15,10 +15,12 @@
         <md-input-container>
           <input mdInput
                  required
+                 autofocus
                  type="email"
                  placeholder="Email"
                  formControlName="email">
           <md-hint class="error" *ngIf="hasError('required', ['account', 'email'])">Email is required</md-hint>
+          <md-hint class="error" *ngIf="hasError('pattern', ['account', 'email'])">Email is invalid</md-hint>
         </md-input-container>
       </div>
 
@@ -73,6 +75,7 @@
           <input mdInput
                  required
                  type="tel"
+                 name="shipZip"
                  placeholder="Zip/Postal Code"
                  formControlName="zip">
           <md-hint class="error" *ngIf="hasError('required', ['address', 'zip'])">Zip code is required</md-hint>
