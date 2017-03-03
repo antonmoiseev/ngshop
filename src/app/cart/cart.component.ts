@@ -47,6 +47,7 @@ export class CartComponent {
 
   removeItem(productId: string) {
     const index = this.products.findIndex(p => p.id === productId);
+    this.cart.removeItem(productId);
     this.products.splice(index, 1);
     this.formModel.removeControl(productId);
   }
