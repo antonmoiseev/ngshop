@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MaterialRootModule } from '@angular/material';
+import { MaterialModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
@@ -25,7 +25,7 @@ import { ProductComponent, ProductDetailsComponent } from './product';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
-    MaterialRootModule
+    MaterialModule
   ],
   declarations: [
     AppComponent,
