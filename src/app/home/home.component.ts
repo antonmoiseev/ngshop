@@ -117,7 +117,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       // when a MediaQueryListener finishes its work. So we need to trigger the
       // change detector manually.
       //
-      // For zone.js isue see: https://github.com/angular/zone.js/issues/243
+      // For zone.js issue see: https://github.com/angular/zone.js/issues/243
       this.changeDetectorRef.detectChanges();
     }
   }
