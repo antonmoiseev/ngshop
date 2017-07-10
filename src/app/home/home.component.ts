@@ -1,8 +1,9 @@
+import 'rxjs/add/operator/switchMap';
+
 import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MdTabGroup } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/switchMap';
 
 import { Product, ProductService } from '../shared/services';
 
@@ -15,7 +16,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
   // TODO: Make array items readonly after upgrading tp TypeScript 2.1
   // https://blogs.msdn.microsoft.com/typescript/2016/12/07/announcing-typescript-2-1/#partial-readonly-record-and-pick
-  private readonly categories = [
+  readonly categories = [
     'all',
     'featured',
     'latest',

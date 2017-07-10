@@ -1,8 +1,9 @@
+import 'rxjs/add/observable/forkJoin';
+import 'rxjs/add/observable/of';
+
 import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/forkJoin';
-
 import {
   Product,
   ProductService,
